@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="referrer" content="no-referrer">
+<title>Zerovex999 | Cybersecurity & Secure Web Solutions</title>
+
+<style>
+/* =========================
+   CSS VARIABLES & THEMING
+   ========================= */
+:root {
+    --bg-color: #0b0f14;
+    --bg-alt: #111827;
+    --text-color: #e5e7eb;
+    --text-muted: #9ca3af;
+    --accent: #38bdf8;
+    --accent-soft: rgba(56, 189, 248, 0.15);
+    --border-color: #1f2933;
+    --card-bg: #0f172a;
+}
+
+body.light {
+    --bg-color: #f9fafb;
+    --bg-alt: #ffffff;
+    --text-color: #0f172a;
+    --text-muted: #475569;
+    --accent: #0284c7;
+    --accent-soft: rgba(2, 132, 199, 0.12);
+    --border-color: #e5e7eb;
+    --card-bg: #ffffff;
+}
+
+/* =========================
+   GLOBAL STYLES
+   ========================= */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(180deg, var(--bg-color), var(--bg-alt));
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+section {
+    padding: 80px 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.light .navbar {
+    background: rgba(255,255,255,0.7);
+}
+
+.navbar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.toggle-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+}
+
+/* =========================
+   HERO SECTION
+   ========================= */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at top, var(--accent-soft), transparent 60%);
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 10px;
+}
+
+.hero p {
+    max-width: 750px;
+    margin: 20px auto 0;
+    font-size: 1.15rem;
+    color: var(--text-muted);
+}
+
+/* =========================
+   CARDS & GRIDS
+   ========================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: var(--accent);
+}
+
+.card p, .card ul {
+    color: var(--text-muted);
+}
+
+.card ul {
+    padding-left: 18px;
+}
+
+/* =========================
+   WHY CHOOSE
+   ========================= */
+.why {
+    background: linear-gradient(180deg, transparent, var(--accent-soft), transparent);
+}
+
+/* =========================
+   CONTACT
+   ========================= */
+.contact-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 30px;
+    text-align: center;
+}
+
+.contact-box a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+footer {
+    border-top: 1px solid var(--border-color);
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.socials {
+    margin-bottom: 15px;
+}
+
+.socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin: 0 6px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.socials a:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+footer p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 600px) {
+    section {
+        padding: 60px 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+<!-- =========================
+     NAVIGATION
+     ========================= -->
+<nav class="navbar">
+    <div class="navbar-inner">
+        <button class="toggle-btn" id="themeToggle" aria-label="Toggle dark and light mode">
+            Toggle Light / Dark
+        </button>
+    </div>
+</nav>
+
+<!-- =========================
+     HERO
+     ========================= -->
+<section class="hero">
+    <div class="container">
+        <h1>Zerovex999</h1>
+        <p>
+            Advanced Cybersecurity Intelligence & Secure Digital Engineering for Law Enforcement,
+            Government Institutions, and High-Risk Enterprises.
+        </p>
+    </div>
+</section>
+
+<!-- =========================
+     ABOUT
+     ========================= -->
+<section>
+    <div class="container">
+        <h2>About Zerovex999</h2>
+        <p>
+            Zerovex999 is a professional cybersecurity and secure web development firm operating with
+            a strong ethical, legal, and investigative mindset. We specialize in protecting critical
+            digital infrastructures, supporting law enforcement investigations, and delivering
+            high-assurance web technologies for organizations where security, confidentiality, and
+            trust are non-negotiable.
+        </p>
+    </div>
+</section>
+
+<!-- =========================
+     CYBERSECURITY SERVICES
+     ========================= -->
+<section>
+    <div class="container">
+        <h2>Cybersecurity Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Offensive & Defensive Security</h3>
+                <ul>
+                    <li>Vulnerability Assessment & Secure Remediation</li>
+                    <li>Advanced Penetration Testing (Ethical Hacking)</li>
+                    <li>Threat Hunting & Adversary Detection</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Intelligence & Investigation</h3>
+                <ul>
+                    <li>Open-Source Intelligence (OSINT)</li>
+                    <li>Digital Forensics & Evidence Analysis</li>
+                    <li>Risk Analysis & Cybersecurity Consulting</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Law Enforcement Support</h3>
+                <p>
+                    Assisting law enforcement agencies in tracking, analyzing, and understanding
+                    cybercriminal activities across the Surface Web, Deep Web, and Dark Web, with
+                    full respect for legal frameworks and investigative integrity.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     WEB DEVELOPMENT SERVICES
+     ========================= -->
+<section>
+    <div class="container">
+        <h2>Web Development Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Secure Web Solutions</h3>
+                <ul>
+                    <li>Secure & Professional Website Development</li>
+                    <li>Custom Web Applications</li>
+                    <li>Database Architecture & Development</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Infrastructure & Deployment</h3>
+                <ul>
+                    <li>Server Setup, Hardening & Deployment</li>
+                    <li>Hosting Infrastructure Design</li>
+                    <li>Performance Optimization</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Security-First Philosophy</h3>
+                <p>
+                    Every solution is built with security at its core, applying best practices in
+                    code integrity, data protection, and system resilience from the first line of
+                    code to final deployment.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     WHY CHOOSE
+     ========================= -->
+<section class="why">
+    <div class="container">
+        <h2>Why Choose Zerovex999</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Trust & Confidentiality</h3>
+                <p>
+                    Strict confidentiality, controlled access, and responsible handling of
+                    sensitive information.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Expertise & Precision</h3>
+                <p>
+                    Deep technical expertise in cybersecurity, intelligence analysis, and secure
+                    systems engineering.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Legal & Ethical Compliance</h3>
+                <p>
+                    All operations are conducted within legal boundaries, aligned with ethical
+                    standards and investigative best practices.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     CONTACT
+     ========================= -->
+<section>
+    <div class="container">
+        <h2>Contact</h2>
+        <div class="contact-box">
+            <p>
+                Contact our technical support team. You will be answered as quickly as possible.
+            </p>
+            <p>
+                <a href="mailto:Zerovex.contact@gmail.com">Zerovex.contact@gmail.com</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+<footer>
+    <div class="socials">
+        <a href="https://www.facebook.com/profile.php?id=61579175626931&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12z"/>
+            </svg>
+        </a>
+        <a href="https://www.instagram.com/mohssineeddaboz?igsh=MTl1Y3YzNXVsaWIwYw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm5.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/>
+            </svg>
+        </a>
+    </div>
+    <p>© 2025 Zerovex999. All Rights Reserved.</p>
+</footer>
+
+<script>
+/* =========================
+   DARK / LIGHT MODE TOGGLE
+   ========================= */
+(function () {
+    "use strict";
+
+    const toggleBtn = document.getElementById("themeToggle");
+    const body = document.body;
+
+    try {
+        const storedTheme = localStorage.getItem("zerovex999-theme");
+        if (storedTheme === "light") {
+            body.classList.add("light");
+        }
+    } catch (e) {
+        /* Fail silently if storage is unavailable */
+    }
+
+    toggleBtn.addEventListener("click", function () {
+        body.classList.toggle("light");
+        try {
+            localStorage.setItem(
+                "zerovex999-theme",
+                body.classList.contains("light") ? "light" : "dark"
+            );
+        } catch (e) {
+            /* Fail silently */
+        }
+    });
+})();
+</script>
+</body>
+</html>
